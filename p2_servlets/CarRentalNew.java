@@ -63,7 +63,7 @@ public class CarRentalNew extends HttpServlet {
     out.println("<br>");
     out.println("</form>");
     out.println("&nbsp; <br>");
-    out.println( "<a href=\"/p1/carrental_home.html\">Home </a> \n");
+      out.println("<a href=carrental_home.html>Home </a>");
   }
 
   JSONObject dameObjeto(String ruta) {
@@ -152,7 +152,7 @@ public class CarRentalNew extends HttpServlet {
 
     JSONObject padre = new JSONObject();
 
-    JSONArray alquileres = (JSONArray) dameObjeto("/home/caps/Desktop/lloguer.json").get("alquileres");
+    JSONArray alquileres = (JSONArray) dameObjeto("lloguer.json").get("alquileres");
 
     if(alquileres == null) alquileres = new JSONArray();
 
@@ -173,7 +173,7 @@ public class CarRentalNew extends HttpServlet {
       padre.put("alquileres", alquileres);
 
       try {
-          FileWriter file = new FileWriter("/home/caps/Desktop/lloguer.json");
+          FileWriter file = new FileWriter("lloguer.json");
           file.write(padre.toJSONString());
           file.flush();
       }catch (IOException e) {
