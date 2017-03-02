@@ -46,7 +46,7 @@ public class CarRentalList extends HttpServlet {
         out.println("<br>");
         out.println("Descompte: " + object.get("descompte"));
         out.println("<br>");
-        out.println("Preu: " + object.get("precio_final"));
+        out.println("Preu: " + object.get("precio_final") + " euros");
         out.println("<hr>");
     }
 
@@ -55,7 +55,7 @@ public class CarRentalList extends HttpServlet {
         out.println("<a href=carrental_home.html>Home </a>");
         out.println("<H1>Llistat de lloguers</H1>");
 
-        JSONArray alquileres = (JSONArray) dameObjeto("/home/caps/Desktop/lloguer.json").get("alquileres");
+        JSONArray alquileres = (JSONArray) dameObjeto("lloguer.json").get("alquileres");
 
         Iterator<JSONObject> iterator = alquileres.iterator();
 
