@@ -92,18 +92,19 @@ func readToFile(w http.ResponseWriter) {
     return
     }
     reader := csv.NewReader(bufio.NewReader(file))
+    fmt.Fprintln(w,"{")
     for {
         record, err := reader.Read()
         if err == io.EOF {
                 break
             }
-        fmt.Fprintln(w,"Lloguer:", record[0])
-        fmt.Fprintln(w,"CarMaker:", record[0])
-        fmt.Fprintln(w,"CarModel:", record[1])
-        fmt.Fprintln(w,"NumDays:", record[2])
-        fmt.Fprintln(w,"NumUnits:", record[3])
-        fmt.Fprintln(w,"Precio:", record[4])
-        fmt.Fprintln(w,"-------------------------------\n")
-
+        fmt.Fprintln(w,"  {")
+        fmt.Fprintln(w,"    CarMaker:", record[0])
+        fmt.Fprintln(w,"    CarModel:", record[1])
+        fmt.Fprintln(w,"    NumDays:", record[2])
+        fmt.Fprintln(w,"    NumUnits:", record[3])
+        fmt.Fprintln(w,"    Precio:", record[4])
+        fmt.Fprintln(w,"  }")
     }
+    fmt.Fprintln(w,"}")
   }
